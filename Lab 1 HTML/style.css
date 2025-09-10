@@ -1,5 +1,10 @@
 h1 {color: #8033FF; text-align: center;}
 
-body { color-scheme: dark; background-color: #8f0a27;
-    
+body { color-scheme: dark; background-color: #8f0a27; 
 }
+
+header {color:#00ff60}
+
+footer {color:#5570ff}
+
+main {color:#ffdd00}
