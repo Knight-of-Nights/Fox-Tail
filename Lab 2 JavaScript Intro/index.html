@@ -6,7 +6,15 @@
         <link href="style.css" rel="stylesheet" type="text/css" />
     </head>
     <script>
-      var today = new Date(); today.getHours();
+      var today = new Date(); 
+      var hours = today.getHours();
+      if (hours < 12) {
+        document.write("Good Morning!");
+      } else if (hours < 18) {
+        document.write("Good Afternoon!");
+      } else {
+        document.write("Good Evening!");
+      }
     </script>
     <body>
 
