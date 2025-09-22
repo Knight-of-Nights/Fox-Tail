@@ -7,9 +7,26 @@
     </head>
     <body>
       
+        <h1 id = "myH1">Tommy's Page</h1>
       
      <!-- The JavaScript code is attached at the bottom of the page
            after the page is completely loaded. Write your code in script.js. -->
-     <script src="script.js"></script> 
+     <script>
+myH1.onmouseover = function() {
+myH1.style.color = "Indigo";
+myH1.textContent = "You clicked me!";
+myH1.style.fontSize = "xx-large";
+myH1.style.backgroundColor = "Green";
+}
+
+
+myH1.onmouseout = function() {
+    myH1.style.color = "Black";
+    myH1.textContent = "Tommy's Page";
+    myH1.style.fontSize = "xx-large";
+    myH1.style.backgroundColor = "White";
+}
+
+     </script> 
     </body>
 </html>
