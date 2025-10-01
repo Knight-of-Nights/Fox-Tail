@@ -1,7 +1,7 @@
 body { #description {
 	background-color: lightblue;
 	width: 300px;
-           margin-top: 30px; // this moves the div up into the image
+           margin-top: 30px;
 	margin-left: 5px;
            text-align: center;
     }
