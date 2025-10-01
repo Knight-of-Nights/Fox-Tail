@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <title>CIT 3606 Lab </title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+      
+        <canvas id="myCanvas" width="500" height="300" style="border:3px indigo"></canvas>
+   
+        <script>
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+ctx.fillRect(100, 100, 50, 50);
+
+const myImg = new Image();
+myImg.src = 'Hernan_Sijaki.jpg';
+myImg.onload = function() {
+    ctx.drawImage(myImg, 10, 10, 100, 120);
+}
+
+myCanvas.onmousedown = function(event) {         
+     alert("Location " + event.clientX + ","    
+                           + event.clientY);  
+}
+
+setInterval(drawFunction, 250
+);
+let x = 0, y = 0;
+function drawFunction()     {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+     x+=2;       
+     y += 2;
+    ctx.drawImage(myImg, x, y, 100, 120);
+}
+
+
+document.onkeydown = checkKey;
+function checkKey(e)  { 
+   if (e.key == "ArrowLeft") 
+       x -= 5;
+   if (e.key == "ArrowRight") 
+       x += 5;
+   if (e.key == "ArrowUp") 
+       y -= 5;
+   if (e.key == "ArrowDown") 
+       y += 5;
+}  
+
+
+</script>
+        
+
+
+    </body>
+</html>
