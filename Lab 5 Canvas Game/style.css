@@ -1,3 +1,40 @@
+import java.awt.Cursor;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class CustomCursorExample extends JFrame {
+
+    public CustomCursorExample() {
+        setTitle("Custom Cursor Example");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+
+        // Load your custom image (e.g., "Hand_with_Glove.png")
+        // Ensure the image is in a location accessible to your application
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Image image = toolkit.getImage(getClass().getResource("/Hand_with_Glove.png")); // For embedded resource
+
+        // Define the hotspot (the point within the image that acts as the cursor's tip)
+        Point hotspot = new Point(0, 0); 
+
+        // Create the custom cursor
+        Cursor customCursor = toolkit.createCustomCursor(image, hotspot, "Custom Cursor");
+        panel.setCursor(customCursor);
+        
+        add(panel);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new CustomCursorExample();
+    }
+}
+
 body {
     
 }
