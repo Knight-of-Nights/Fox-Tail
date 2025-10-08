@@ -23,7 +23,7 @@ public class CustomCursorExample extends JFrame {
         Point hotspot = new Point(0, 0); 
 
         // Create the custom cursor
-        Cursor customCursor = toolkit.createCustomCursor(image, hotspot, "Custom Cursor");
+        Cursor customCursor = toolkit.createCustomCursor(image, hotspot, "Hand_with_Glove");
         panel.setCursor(customCursor);
         
         add(panel);
