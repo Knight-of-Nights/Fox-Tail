@@ -12,6 +12,35 @@
         <script>
             const canvas = document.getElementById("myCanvas");
             const ctx = canvas.getContext("2d");
+
+            const myImg = new Image();
+myImg.src = 'Zombie-1.png';
+myImg.onload = function(){
+    ctx.drawImage(myImg, 0, 0, 100, 100); 
+              // fill in numbers for x, y,width,height!
+}
+
+const myImg = new Image();
+myImg.src = 'Zombie-2.png';
+myImg.onload = function(){
+    ctx.drawImage(myImg, 100, 0, 100, 100); 
+              // fill in numbers for x, y,width,height!
+}
+
+const myImg = new Image();
+myImg.src = 'Zombie-3.png';
+myImg.onload = function(){
+    ctx.drawImage(myImg, 200, 0, 100, 100); 
+              // fill in numbers for x, y,width,height!
+}
+
+const myImg = new Image();
+myImg.src = 'Resource_Bag.png';
+myImg.onload = function(){
+    ctx.drawImage(myImg, 300, 0, 100, 100); 
+              // fill in numbers for x, y,width,height!
+}
+
         </script>
 
         <script src="script.js"></script> 
