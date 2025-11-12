@@ -1,0 +1,17 @@
+<form action="/submit" method="post">
+      Search for Last Name: 
+     <input type="text"  name="lastname">
+      <br>
+      <button type="submit">Submit</button>
+ </form>
+const express = require('express'); 
+const app = express(); 
+
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended:true}));
+
+app.get('/form', function(req, res){
+   res.sendFile(__dirname + "/form.html");
+});
+app.listen(8080);
+
