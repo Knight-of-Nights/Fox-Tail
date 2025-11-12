@@ -8,11 +8,48 @@ conn.query(sql, [lastname], function (err, result) {
   console.log(result);
  res.send(result);
 });
-
-
-
 });
-app.listen(8080);
+
+
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended:true}));
+
+app.get('/form', function(req, res){
+   res.sendFile(__dirname + "/form.html");
+});
+
+app.get('/new', function(req, res){
+   res.sendFile(__dirname + "/forminsert.html");
+});
+
+app.post('/insert', function(req, res){
+   const sql = "INSERT INTO Users (Username, Password, Email) VALUES (?, ?, ?)";
+  conn.query(sql, [req.body.Username, req.body.Password, req.body.Email],  
+   function (err, result) {
+      if (err) throw err;
+      res.send("Your account has successfully been created!");
+     });
+});
+
+
+app.post('/submit', function(req, res){
+  const sql = 'SELECT * FROM students WHERE lastname = ?';
+  console.log("Form contents: " + req.body.lastname);
+  conn.query(sql, [req.body.lastname], function (err, result) {
+    if (err) throw err;
+    if (result.length == 0)  { res.send("no result"); }
+    else {  console.log(result);
+              // res.send(result);
+              resultStr = ""  
+for (i = 0; i < result.length; i++) {
+      resultStr += result[i].firstname +  " " + 
+                           result[i].lastname + "<br>"  ;
+   }
+
+   }  }  );
+});    
+
+
 
 
 
@@ -22,13 +59,15 @@ require('dotenv').config();
 const conn = mysql.createConnection({
   host: "mysql1-p2.ezhostingserver.com",
   database: "citdemo",
-user:"elms",
-password:"CIT4ever!"
-//  user: process.env.DB_USER,
-//  password: process.env.DB_PASSWORD
+
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD
 });
 conn.connect((err) => {           // can move this into app.get and send
   if (err) throw err;
   console.log("Connected!");
 });
 
+
+
+app.listen(8080);
